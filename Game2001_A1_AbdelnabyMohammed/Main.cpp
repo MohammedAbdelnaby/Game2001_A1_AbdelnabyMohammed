@@ -1,11 +1,12 @@
 #include <iostream>
 #include "UnorderedArray.h"
+#include "OrderedArray.h"
 using namespace std;
 
 
 int main()
 {
-	UnorderedArry<int> array(3);
+	OrderedArry<int> array(3);
 	array.push(3);
 	array.push(53);
 	array.push(83);
@@ -21,6 +22,6 @@ int main()
 		cout << array[i] << endl;
 	}
 
-	cout << array.search(53) << endl;
+	cout << array.search(23) << endl;
 	return 0;
 }
