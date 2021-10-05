@@ -10,6 +10,11 @@ public:
 	void push(T val)
 	{
 		assert(this->m_array != nullptr);
+		if (this->search(val) != -1 && this->m_duplicateData)
+		{
+			std::cout << "found a duplicate" << std::endl;
+			return;
+		}
 		if (this->m_numElements >= this->m_maxSize)
 		{
 			this->Expand();

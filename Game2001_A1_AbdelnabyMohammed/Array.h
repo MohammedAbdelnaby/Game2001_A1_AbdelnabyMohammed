@@ -5,7 +5,7 @@ template<class T>
 class Array
 {
 public:
-	Array(int size, int growBy = 1) : m_array(NULL), m_maxSize(0), m_growSize(0), m_numElements(0)
+	Array(int size, int growBy = 1) : m_array(NULL), m_maxSize(0), m_growSize(0), m_numElements(0), m_duplicateData(false)
 	{
 		if (size >= 0)
 		{
@@ -74,6 +74,10 @@ public:
 		assert(val >= 0);
 		m_growSize = val;
 	}
+	void setDuplicateData(bool x)
+	{
+		m_duplicateData = x;
+	}
 protected:
 	bool Expand()
 	{
@@ -89,6 +93,7 @@ protected:
 		m_array = temp;
 		temp = nullptr;
 		m_maxSize += m_growSize;
+		m_growSize *= 2;
 		return true;
 	}
 protected:
@@ -96,5 +101,5 @@ protected:
 	int m_maxSize;
 	int m_growSize;
 	int m_numElements;
-
+	bool m_duplicateData;
 };
