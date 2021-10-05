@@ -1,4 +1,5 @@
 #include <iostream>
+#include "Array.h"
 #include "UnorderedArray.h"
 #include "OrderedArray.h"
 using namespace std;
