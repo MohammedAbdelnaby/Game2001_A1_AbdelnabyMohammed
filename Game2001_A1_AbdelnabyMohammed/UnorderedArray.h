@@ -3,12 +3,18 @@
 #include <cassert>
 
 template<class T>
-class UnorderedArry : public Array<T>
+class UnorderedArray : public Array<T>
 {
 public:
+	UnorderedArray(int size, int growBy = 1) : Array<T>(size, growBy) {}
 	void push(T val)
 	{
 		assert(this->m_array != nullptr);
+		if (this->search(val) != -1 && this->m_duplicateData)
+		{
+			std::cout << std::endl << "found a duplicate" << std::endl;
+			return;
+		}
 		if (this->m_numElements >= this->m_maxSize)
 		{
 			this->Expand();

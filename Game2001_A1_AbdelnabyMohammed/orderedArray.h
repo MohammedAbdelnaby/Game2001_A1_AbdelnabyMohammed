@@ -3,16 +3,16 @@
 #include <cassert>
 
 template<class T>
-class OrderedArry : public Array<T>
+class OrderedArray : public Array<T>
 {
 public:
-	OrderedArry(int size, int growBy = 1) : Array<T>(size, growBy) {}
+	OrderedArray(int size, int growBy = 1) : Array<T>(size, growBy) {}
 	void push(T val)
 	{
 		assert(this->m_array != nullptr);
 		if (this->search(val) != -1 && this->m_duplicateData)
 		{
-			std::cout << "found a duplicate" << std::endl;
+			std::cout << std::endl << "found a duplicate" << std::endl;
 			return;
 		}
 		if (this->m_numElements >= this->m_maxSize)
